@@ -6,7 +6,6 @@ set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTORCC ON)
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
-# Resources:
 set(qtgraphicaleffectsshaders_resource_files
     "shaders_ng/brightnesscontrast.frag.qsb"
     "shaders_ng/colorize.frag.qsb"
@@ -56,27 +55,32 @@ set(qml_files
     )
 
 find_package(Qt6 6.2 COMPONENTS Core Qml Quick REQUIRED)
+
 qt6_add_qml_module(qtgraphicaleffects
-#    SHARED
-    VERSION 1.0
-    PLUGIN_TARGET qtgraphicaleffects
-#    DESIGNER_SUPPORTED
-#    NO_CREATE_PLUGIN_TARGET
+    DESIGNER_SUPPORTED
     NO_GENERATE_PLUGIN_SOURCE
     NO_PLUGIN_OPTIONAL
-    RESOURCE_PREFIX "/qt-project.org/imports"
-    URI "QtGraphicalEffects"
-    CLASS_NAME "QtGraphicalEffectsPlugin"
-    QML_FILES ${qml_files}
-    RESOURCES ${qtgraphicaleffectsshaders_resource_files}
-    DEPENDENCIES
-        QtQuick.Window/auto
+    VERSION
+        1.0
+    RESOURCE_PREFIX
+        "/qt-project.org/imports"
+    URI
+        "QtGraphicalEffects"
+    PLUGIN_TARGET
+        "qtgraphicaleffects"
+    CLASS_NAME
+        "QtGraphicalEffectsPlugin"
     SOURCES
         plugin.cpp
         qgfxsourceproxy.cpp
         qgfxsourceproxy_p.h
+    QML_FILES
+        ${qml_files}
+    RESOURCES
+        ${qtgraphicaleffectsshaders_resource_files}
+    DEPENDENCIES
+        QtQuick.Window/auto
     )
 
 target_include_directories(qtgraphicaleffects PRIVATE ${Qt6Quick_PRIVATE_INCLUDE_DIRS})
-
 target_link_libraries(qtgraphicaleffects PRIVATE Qt::Core Qt::Gui Qt::Qml Qt::Quick)
