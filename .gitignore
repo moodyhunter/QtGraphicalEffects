@@ -39,6 +39,7 @@ Makefile*
 *.Release
 *.prl
 *.pro.user
+CMakeLists.txt.user
 *.qmlproject.user*
 moc_*.cpp
 ui_*.h
