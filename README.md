@@ -10,10 +10,10 @@ Graphical Effects for Qt, with original features but for Qt6, ported from qt/qtg
 
 2. Add following lines to your CMakeLists.txt
 ```cmake
-add_subdirectory(qge/src) # where 'qge/src' is the path to src/
+add_subdirectory(QtGraphicalEffects) # where 'QtGraphicalEffects' is the path to QtGraphicalEffects
 
 # These two lines make Qt Creator recognize QGE QML module.
-list(APPEND QML_DIRS "${CMAKE_CURRENT_BINARY_DIR}/qge/src/") # As above
+list(APPEND QML_DIRS "${CMAKE_CURRENT_BINARY_DIR}/QtGraphicalEffects/") # As above
 set(QML_IMPORT_PATH "${QML_DIRS}" CACHE STRING "Qt Creator 4.1 extra qml import paths")
 ```
 
@@ -22,7 +22,7 @@ set(QML_IMPORT_PATH "${QML_DIRS}" CACHE STRING "Qt Creator 4.1 extra qml import 
 ```cpp
 // QQmlApplicationEngine engine;
 // to make sure QGE module can be found at runtime.
-engine.addImportPath(app.applicationDirPath() + "/qge/src/");
+engine.addImportPath(app.applicationDirPath());
 ```
 
 ### Installing to global QML import path
