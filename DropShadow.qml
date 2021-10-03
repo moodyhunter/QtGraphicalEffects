@@ -281,7 +281,7 @@ Item {
         By default, the property is set to \c false.
 
     */
-    property bool cached: false
+    property bool cached: true
 
 
     /*!
