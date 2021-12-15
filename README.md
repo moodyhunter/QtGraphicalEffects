@@ -13,7 +13,7 @@ Graphical Effects for Qt, with original features but for Qt6, ported from qt/qtg
 add_subdirectory(QtGraphicalEffects) # where 'QtGraphicalEffects' is the path to QtGraphicalEffects
 
 # These two lines make Qt Creator recognize QGE QML module.
-list(APPEND QML_DIRS "${CMAKE_CURRENT_BINARY_DIR}/QtGraphicalEffects/") # As above
+list(APPEND QML_DIRS "${CMAKE_CURRENT_BINARY_DIR}/") # As above
 set(QML_IMPORT_PATH "${QML_DIRS}" CACHE STRING "Qt Creator 4.1 extra qml import paths")
 ```
 
