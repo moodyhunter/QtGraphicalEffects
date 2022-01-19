@@ -56,7 +56,7 @@ set(qml_files
 
 find_package(Qt6 6.2 COMPONENTS Core Qml Quick REQUIRED)
 
-qt6_add_qml_module(qtgraphicaleffects
+qt_add_qml_module(qtgraphicaleffects
     DESIGNER_SUPPORTED
     NO_GENERATE_PLUGIN_SOURCE
     NO_PLUGIN_OPTIONAL
@@ -84,3 +84,4 @@ qt6_add_qml_module(qtgraphicaleffects
 
 target_include_directories(qtgraphicaleffects PRIVATE ${Qt6Quick_PRIVATE_INCLUDE_DIRS})
 target_link_libraries(qtgraphicaleffects PRIVATE Qt::Core Qt::Gui Qt::Qml Qt::Quick)
+add_library(Qt::GraphicalEffects ALIAS qtgraphicaleffects)
