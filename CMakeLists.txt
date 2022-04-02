@@ -78,10 +78,8 @@ qt_add_qml_module(qtgraphicaleffects
         ${qml_files}
     RESOURCES
         ${qtgraphicaleffectsshaders_resource_files}
-    DEPENDENCIES
-        QtQuick.Window/auto
     )
 
 target_include_directories(qtgraphicaleffects PRIVATE ${Qt6Quick_PRIVATE_INCLUDE_DIRS})
-target_link_libraries(qtgraphicaleffects PRIVATE Qt::Core Qt::Gui Qt::Qml Qt::Quick)
+target_link_libraries(qtgraphicaleffects PUBLIC Qt::Core Qt::Gui Qt::Qml Qt::Quick)
 add_library(Qt::GraphicalEffects ALIAS qtgraphicaleffects)
