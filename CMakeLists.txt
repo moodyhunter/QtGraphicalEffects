@@ -67,19 +67,23 @@ qt_add_qml_module(qtgraphicaleffects
     URI
         "QtGraphicalEffects"
     PLUGIN_TARGET
-        "qtgraphicaleffects"
+        "qtgraphicaleffectsplugin"
     CLASS_NAME
         "QtGraphicalEffectsPlugin"
-    SOURCES
-        plugin.cpp
-        qgfxsourceproxy.cpp
-        qgfxsourceproxy_p.h
     QML_FILES
         ${qml_files}
     RESOURCES
         ${qtgraphicaleffectsshaders_resource_files}
     )
 
-target_include_directories(qtgraphicaleffects PRIVATE ${Qt6Quick_PRIVATE_INCLUDE_DIRS})
+target_sources(qtgraphicaleffectsplugin
+    PRIVATE
+        plugin.cpp
+        qgfxsourceproxy.cpp
+        qgfxsourceproxy_p.h
+    )
+
+target_include_directories(qtgraphicaleffectsplugin PRIVATE ${Qt6Quick_PRIVATE_INCLUDE_DIRS})
+
 target_link_libraries(qtgraphicaleffects PUBLIC Qt::Core Qt::Gui Qt::Qml Qt::Quick)
 add_library(Qt::GraphicalEffects ALIAS qtgraphicaleffects)
